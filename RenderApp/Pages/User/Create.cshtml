@@ -1,0 +1,19 @@
+﻿@page
+@model RenderApp.Pages.User.CreateModel
+@{
+    ViewData["Title"] = "Добавить пользователя";
+}
+
+<h2>Добавить пользователя</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="NewUser.Name"></label>
+        <input asp-for="NewUser.Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewUser.Email"></label>
+        <input asp-for="NewUser.Email" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+</form>

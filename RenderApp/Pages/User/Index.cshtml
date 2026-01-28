@@ -1,0 +1,32 @@
+﻿@page
+@model RenderApp.Pages.User.IndexModel
+@{
+    ViewData["Title"] = "Список пользователей";
+}
+
+<h2>Список пользователей</h2>
+<a asp-page="Create">Добавить нового</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Имя</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.Name</td>
+                <td>@user.Email</td>
+                <td>
+                    <a asp-page="Delete" asp-route-id="@user.Id">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
