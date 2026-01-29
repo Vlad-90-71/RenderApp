@@ -25,17 +25,10 @@
                 <td>@user.Name</td>
                 <td>@user.Email</td>
                 <td> 
-                    @if (user.Photo != null) 
-                    { 
-                        var base64 = Convert.ToBase64String(user.Photo); 
-                        var imgSrc = $"data:image/png;base64,{base64}"; 
-
-                        <img src="@imgSrc" alt="Фото пользователя" width="100" /> 
-                    } 
-                    else 
-                    { 
-                        <span>Нет фото</span> 
-                    } 
+                    @if (!string.IsNullOrEmpty(user.PhotoPath)) 
+                    {
+                        <img src="@user.PhotoPath" alt="Фото" style="max-width:100px;" />
+                    }
                 </td>
                 <td>
                     <a asp-page="Delete" asp-route-id="@user.Id">Удалить</a>
