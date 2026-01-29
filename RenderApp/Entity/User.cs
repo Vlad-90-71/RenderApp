@@ -13,7 +13,7 @@ namespace RenderApp.Entity
         [EmailAddress, MaxLength(200)]
         public string? Email { get; set; }
 
-        [MaxLength(300)]
-        public string? PhotoPath { get; set; } // путь к файлу фото    }
+        // Фото хранится как массив байт
+        public byte[]? Photo { get; set; }
     }
 }
