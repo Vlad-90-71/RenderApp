@@ -13,6 +13,7 @@
             <th>Id</th>
             <th>Имя</th>
             <th>Email</th>
+            <th>Фото</th>
             <th></th>
         </tr>
     </thead>
@@ -23,6 +24,16 @@
                 <td>@user.Id</td>
                 <td>@user.Name</td>
                 <td>@user.Email</td>
+                <td> 
+                    @if (!string.IsNullOrEmpty(user.PhotoPath)) 
+                    {
+                        <img src="@user.PhotoPath" alt="Фото пользователя" width="100" />
+                    }
+                    else
+                    {
+                        <span>Нет фото</span>
+                    }
+                </td>
                 <td>
                     <a asp-page="Delete" asp-route-id="@user.Id">Удалить</a>
                 </td>

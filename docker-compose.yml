@@ -1,6 +1,0 @@
-services:
-  renderapp:
-    image: ${DOCKER_REGISTRY-}renderapp
-    build:
-      context: .
-      dockerfile: RenderApp/Dockerfile
