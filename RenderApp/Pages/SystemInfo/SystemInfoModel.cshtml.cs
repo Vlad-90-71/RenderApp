@@ -5,24 +5,21 @@ namespace RenderApp.Pages.SystemInfo
 {
     public class SystemInfoModel : PageModel
     {
-        private readonly ContainerMetricsService _metrics;
+        private readonly ContainerResourcesService _resources = new();
 
+        public string? CpuLimit { get; set; }
         public string? CpuUsage { get; set; }
+        public string? MemoryLimit { get; set; }
         public string? MemoryUsage { get; set; }
         public IEnumerable<(string Drive, long Total, long Free)> Disks { get; set; } = [];
-        public string? ProcMemInfo { get; set; }
-
-        public SystemInfoModel()
-        {
-            _metrics = new ContainerMetricsService();
-        }
 
         public void OnGet()
         {
-            CpuUsage = _metrics.GetCpuUsage();
-            MemoryUsage = _metrics.GetMemoryUsage();
-            Disks = _metrics.GetDiskInfo();
-            ProcMemInfo = _metrics.GetProcMemInfo();
+            CpuLimit = _resources.GetCpuLimit();
+            CpuUsage = _resources.GetCpuUsage();
+            MemoryLimit = _resources.GetMemoryLimit();
+            MemoryUsage = _resources.GetMemoryUsage();
+            Disks = _resources.GetDiskInfo();
         }
     }
 

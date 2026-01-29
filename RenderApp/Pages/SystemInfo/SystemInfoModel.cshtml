@@ -1,9 +1,11 @@
 ﻿@page
 @model RenderApp.Pages.SystemInfo.SystemInfoModel
 
-<h2>Docker Container Metrics</h2>
+<h2>Информация о контейнере</h2>
 
+<p><strong>CPU Limit:</strong> @Model.CpuLimit</p>
 <p><strong>CPU Usage:</strong> @Model.CpuUsage</p>
+<p><strong>Memory Limit:</strong> @Model.MemoryLimit</p>
 <p><strong>Memory Usage:</strong> @Model.MemoryUsage</p>
 
 <h3>Диски:</h3>
@@ -22,6 +24,3 @@
         }
     </tbody>
 </table>
-
-<h3>/proc/meminfo:</h3>
-<pre>@Model.ProcMemInfo</pre>
